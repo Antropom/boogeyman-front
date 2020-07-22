@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Boogeymen from './components/Boogeymen';
 import Admin from './components/Admin';
-import './App.css';
+import './scss/bootstrap.scss';
 
 function App() {
   return (
