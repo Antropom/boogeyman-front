@@ -18,14 +18,19 @@ const Boogeymen = () => {
         <Link to="/" className="col-1">
           <button type="button">Home</button>
         </Link>
-        <h1 className="col-10 text-center">Title</h1>
+        <h1 className="col-10 text-center perma">Drive</h1>
         <div className="col-1" />
       </div>
       <div className="row">
         {boogeyDatas &&
           boogeyDatas.map((killer) => (
             <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 ">
-              <DisplayBoogeyman id={killer.id} name={killer.name} url={killer.avatar} />
+              <DisplayBoogeyman
+                id={killer.id}
+                name={killer.name}
+                url={killer.avatar}
+                votes={killer.votes}
+              />
             </div>
           ))}
       </div>
