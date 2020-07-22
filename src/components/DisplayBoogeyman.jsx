@@ -1,32 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { addVote } from './methods';
 
 const DisplayBoogeyman = (props) => {
   const { url, name, votes, id } = props;
+  const [totalVotes, setTotalVotes] = useState(votes);
   return (
-    <div className="card mx-auto" style={{ width: '18rem' }}>
+    <div className="card mx-auto bg-dark mt-5" style={{ width: '18rem' }}>
       <img src={url} className="card-img-top" style={{ height: '30rem' }} alt={name} />
       <div className="card-body">
         <h5
-          className="card-title text-center perma"
+          className="card-title text-center perma ncolor"
           style={{
-            'border-right': 'solid 1px #ddd ',
-            'border-left': 'solid 1px #ddd ',
-            'border-bottom': 'solid 1px #ddd',
-            'border-radius': '5px',
+            borderRight: 'solid 1px #ddd ',
+            borderLeft: 'solid 1px #ddd ',
+            borderBottom: 'solid 1px #ddd',
+            borderRadius: '5px',
           }}
         >
           {name}
         </h5>
         <div className="row">
-          <button type="button" className="col-2">
+          <button
+            type="button"
+            className="col-2 btn btn-danger"
+            onClick={async () => {
+              const newVote = await addVote(1, totalVotes, id);
+              setTotalVotes(newVote);
+            }}
+          >
             Up
           </button>
-          <button type="button" className="col-2">
+          <button
+            type="button"
+            className="col-2 btn btn-danger"
+            onClick={async () => {
+              const newVote = await addVote(-1, totalVotes, id);
+              setTotalVotes(newVote);
+            }}
+          >
             Down
           </button>
           <div className="col-4" />
-          <p className="col-4 text-center my-auto perma">{votes}</p>
+          <p className="col-4 text-center my-auto perma ncolor">{totalVotes}</p>
         </div>
       </div>
     </div>
@@ -36,7 +52,8 @@ const DisplayBoogeyman = (props) => {
 DisplayBoogeyman.propTypes = {
   url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  votes: PropTypes.string.isRequired,
+  votes: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default DisplayBoogeyman;

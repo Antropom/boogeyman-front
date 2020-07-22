@@ -1,3 +1,8 @@
 .perma {
   font-family: 'Permanent Marker', cursive !important;
 }
+
+.ncolor {
+  color: #fff !important;
+  text-shadow: 0 0 0.3em #f50079;
+}

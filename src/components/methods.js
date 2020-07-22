@@ -12,4 +12,18 @@ const getBoogeymen = (setBoogeyDatas) => {
     });
 };
 
-export default getBoogeymen;
+const addVote = (vote, totalVote, id) => {
+  const tempVote = vote + totalVote;
+  if (tempVote >= 0) {
+    const data = { votes: tempVote };
+    return axios
+      .put(`${process.env.REACT_APP_API_URL}/boogeymen/${id}`, data)
+      .then(() => tempVote)
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  return 0;
+};
+
+export { getBoogeymen, addVote };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import getBoogeymen from './methods';
+import { getBoogeymen } from './methods';
 import DisplayBoogeyman from './DisplayBoogeyman';
 
 const Boogeymen = () => {
@@ -13,15 +13,19 @@ const Boogeymen = () => {
   }, [boogeyDatas]);
 
   return (
-    <div className="container">
+    <div className="container bg-dark">
       <div className="row">
-        <Link to="/" className="col-1">
-          <button type="button">Home</button>
+        <Link to="/" className="col-1  my-auto">
+          <button type="button" className="btn btn-danger">
+            Home
+          </button>
         </Link>
-        <h1 className="col-10 text-center perma">Drive</h1>
+        <h1 className="col-10 text-center ncolor perma text-uppercase" style={{ fontSize: '5em' }}>
+          who's the best ?
+        </h1>
         <div className="col-1" />
       </div>
-      <div className="row">
+      <div className="row bg-dark">
         {boogeyDatas &&
           boogeyDatas.map((killer) => (
             <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 ">
