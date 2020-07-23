@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// Get all boogeymen
 const getBoogeymen = (setBoogeyDatas) => {
   axios
     .get(`${process.env.REACT_APP_API_URL}/boogeymen`)
@@ -12,6 +13,7 @@ const getBoogeymen = (setBoogeyDatas) => {
     });
 };
 
+// Vote method
 const addVote = (vote, totalVote, id) => {
   const tempVote = vote + totalVote;
   if (tempVote >= 0) {
@@ -26,6 +28,7 @@ const addVote = (vote, totalVote, id) => {
   return 0;
 };
 
+// Ordering method, get an array with who as the most votes
 const order = (boogeyDatas, setOrderedKillers) => {
   const ordered = [];
   const arrLength = boogeyDatas.length;
@@ -37,4 +40,36 @@ const order = (boogeyDatas, setOrderedKillers) => {
   setOrderedKillers(ordered);
 };
 
-export { getBoogeymen, addVote, order };
+// Classic handleChange
+const handleChange = (e, killerDatas, setKillerDatas) => {
+  setKillerDatas({
+    ...killerDatas,
+    [e.target.id]: e.target.value,
+  });
+};
+
+//  PUT method
+const editBoogeyman = (id, datas) => {
+  axios
+    .put(`${process.env.REACT_APP_API_URL}/boogeymen/${id}`, datas)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+// DELETE method
+const deleteBoogeyman = (id) => {
+  axios
+    .delete(`${process.env.REACT_APP_API_URL}/boogeymen/${id}`)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export { getBoogeymen, addVote, order, handleChange, editBoogeyman, deleteBoogeyman };
