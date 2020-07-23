@@ -15,12 +15,10 @@ const Boogeymen = () => {
   return (
     <div className="container bg-dark">
       <div className="row">
-        <Link to="/" className="col-1  my-auto">
-          <button type="button" className="btn btn-danger">
-            Home
-          </button>
+        <Link to="/" className="col-1 mt-3 nodeco anim">
+          <h3 className="text-center mx-auto ncolor perma text-uppercase">home</h3>
         </Link>
-        <h1 className="col-10 text-center ncolor perma text-uppercase" style={{ fontSize: '5em' }}>
+        <h1 className="col-10 text-center ncolor perma text-uppercase smtitle mt-5">
           who&apos;s the best ?
         </h1>
         <div className="col-1" />

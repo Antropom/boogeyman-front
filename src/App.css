@@ -22,6 +22,14 @@
   z-index: 0 !important;
 }
 
+.anim {
+  transition: transform 0.2s;
+}
+
+.anim:hover {
+  transform: scale(1.25);
+}
+
 .big-title {
   font-size: 3rem;
 }

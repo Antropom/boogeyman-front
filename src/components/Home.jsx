@@ -13,7 +13,7 @@ const Home = () => {
         <div className="row mt-3">
           <Link
             to="/admin"
-            className="col-3 offset-8 col-sm-3 offset-sm-9 col-md-2 offset-md-10 col-lg-1 offset-lg-10 mb-5 nodeco"
+            className="col-3 offset-8 col-sm-3 offset-sm-9 col-md-2 offset-md-10 col-lg-1 offset-lg-10 mb-5 nodeco anim"
           >
             <h3 className="text-center mx-auto ncolor perma text-uppercase">admin</h3>
           </Link>
@@ -25,7 +25,7 @@ const Home = () => {
           </h1>
         </div>
         <div className="row">
-          <Link to="/boogeymen" className="col-12 mt-5 nodeco">
+          <Link to="/boogeymen" className="col-12 mt-5 nodeco anim">
             <h2 className="text-center ncolor perma  text-uppercase smtitle">Vote now !</h2>
           </Link>
         </div>

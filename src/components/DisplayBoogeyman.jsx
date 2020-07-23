@@ -12,9 +12,9 @@ const DisplayBoogeyman = (props) => {
         <h5
           className="card-title text-center perma ncolor"
           style={{
-            borderRight: 'solid 1px #ddd ',
-            borderLeft: 'solid 1px #ddd ',
-            borderBottom: 'solid 1px #ddd',
+            borderRight: 'solid 1px #555 ',
+            borderLeft: 'solid 1px #555 ',
+            borderBottom: 'solid 1px #555',
             borderRadius: '5px',
           }}
         >
