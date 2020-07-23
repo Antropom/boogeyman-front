@@ -23,7 +23,7 @@ const Boogeymen = () => {
     <div className="container bg-dark mx-auto">
       <div className="row">
         <Link to="/" className="col-1 mt-3 nodeco anim">
-          <h3 className="text-center mx-auto ncolor perma text-uppercase">home</h3>
+          <h3 className="text-center mx-auto ncolor perma text-uppercase ">home</h3>
         </Link>
       </div>
       <div className="row bg-dark">
