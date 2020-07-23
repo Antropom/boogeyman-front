@@ -21,14 +21,14 @@ const Boogeymen = () => {
           </button>
         </Link>
         <h1 className="col-10 text-center ncolor perma text-uppercase" style={{ fontSize: '5em' }}>
-          who's the best ?
+          who&apos;s the best ?
         </h1>
         <div className="col-1" />
       </div>
       <div className="row bg-dark">
         {boogeyDatas &&
-          boogeyDatas.map((killer, i) => (
-            <div key={i} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 ">
+          boogeyDatas.map((killer) => (
+            <div key={killer.id} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 ">
               <DisplayBoogeyman
                 id={killer.id}
                 name={killer.name}

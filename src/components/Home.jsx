@@ -6,6 +6,7 @@ const Home = () => {
   return (
     <div>
       <video className="intro-video" autoPlay loop>
+        <track kind="captions" />
         <source src={intro} type="video/mp4" />
       </video>
       <div className="container">
