@@ -6,3 +6,46 @@
   color: #fff !important;
   text-shadow: 0 0 0.3em #f50079;
 }
+
+.nodeco:hover {
+  text-decoration: none;
+}
+
+.intro-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0 !important;
+}
+
+.big-title {
+  font-size: 3rem;
+}
+
+.smtitle {
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 576px) {
+  .big-title {
+    font-size: 5rem;
+  }
+
+  .smtitle {
+    font-size: 3rem !important;
+  }
+}
+
+@media screen and (min-width: 996px) {
+  .big-title {
+    font-size: 8rem;
+  }
+
+  .smtitle {
+    font-size: 4rem !important;
+  }
+}
