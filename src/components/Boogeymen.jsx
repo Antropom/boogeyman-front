@@ -25,6 +25,12 @@ const Boogeymen = () => {
         <Link to="/" className="col-1 mt-3 nodeco anim">
           <h3 className="text-center mx-auto ncolor perma text-uppercase ">home</h3>
         </Link>
+        <Link
+          to="/admin"
+          className="col-3 offset-7 col-sm-3 offset-sm-8 col-md-2 offset-md-9 col-lg-1 offset-lg-9 nodeco anim mt-3"
+        >
+          <h3 className="text-center mx-auto ncolor perma text-uppercase">admin</h3>
+        </Link>
       </div>
       <div className="row bg-dark">
         {orderedKillers &&

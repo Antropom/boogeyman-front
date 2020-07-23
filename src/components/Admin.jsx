@@ -22,6 +22,9 @@ const Admin = () => {
           <h3 className="text-center mx-auto ncolor perma text-uppercase">home</h3>
         </Link>
       </div>
+      <div className="row">
+        <h1 className="text-center mx-auto ncolor perma text-uppercase smtitle mb-5">Dashboard</h1>
+      </div>
       {boogeyDatas &&
         boogeyDatas.map((killer) => (
           <Forms key={killer.id} killer={killer} setUpdated={setUpdated} />
