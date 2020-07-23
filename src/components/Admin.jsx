@@ -19,10 +19,7 @@ const Admin = () => {
           <h3 className="text-center mx-auto ncolor perma text-uppercase">home</h3>
         </Link>
       </div>
-      {boogeyDatas &&
-        boogeyDatas.map((killer) => (
-          <Forms key={killer.id} killer={killer} setBoogeyDatas={setBoogeyDatas} />
-        ))}
+      {boogeyDatas && boogeyDatas.map((killer) => <Forms key={killer.id} killer={killer} />)}
     </div>
   );
 };

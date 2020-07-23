@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { handleChange, editBoogeyman, deleteBoogeyman } from './methods';
 
 const Forms = (props) => {
-  const { killer, setBoogeyDatas } = props;
+  const { killer } = props;
   const [killerDatas, setKillerDatas] = useState({
     name: killer.name,
     avatar: killer.avatar,
@@ -11,7 +11,7 @@ const Forms = (props) => {
   });
 
   return (
-    <form onSubmit={() => editBoogeyman(killer.id, killerDatas)} className="row mx-auto">
+    <form className="row mx-auto">
       <div className="form-group mx-auto my-auto col-12 col-md-4 col-lg-3">
         <input
           type="text"
@@ -42,7 +42,14 @@ const Forms = (props) => {
           onChange={(e) => handleChange(e, killerDatas, setKillerDatas)}
         />
       </div>
-      <button type="submit" className="btn btn-danger mx-auto mt-1 mb-1 col-12 col-md-12 col-lg-1">
+      <button
+        type="button"
+        className="btn btn-danger mx-auto mt-1 mb-1 col-12 col-md-12 col-lg-1"
+        onClick={async () => {
+          const condition = await editBoogeyman(killer.id, killerDatas);
+          window.location.reload(condition);
+        }}
+      >
         Edit
       </button>
       <button
@@ -50,7 +57,7 @@ const Forms = (props) => {
         className="btn btn-danger mx-auto mt-1 mb-1 col-12 col-md-12 col-lg-1"
         onClick={() => {
           deleteBoogeyman(killer.id);
-          setBoogeyDatas([]);
+          window.location.reload();
         }}
       >
         Delete

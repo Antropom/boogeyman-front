@@ -49,11 +49,12 @@ const handleChange = (e, killerDatas, setKillerDatas) => {
 };
 
 //  PUT method
-const editBoogeyman = (id, datas) => {
-  axios
-    .put(`${process.env.REACT_APP_API_URL}/boogeymen/${id}`, datas)
+const editBoogeyman = (id, data) => {
+  return axios
+    .put(`${process.env.REACT_APP_API_URL}/boogeymen/${id}`, data)
     .then((res) => {
       console.log(res);
+      return true;
     })
     .catch((error) => {
       console.log(error);
@@ -72,4 +73,6 @@ const deleteBoogeyman = (id) => {
     });
 };
 
-export { getBoogeymen, addVote, order, handleChange, editBoogeyman, deleteBoogeyman };
+// POST method
+
+export { getBoogeymen, addVote, order, handleChange, deleteBoogeyman, editBoogeyman };
