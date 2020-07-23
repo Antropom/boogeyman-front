@@ -3,11 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Boogeymen from './components/Boogeymen';
 import Admin from './components/Admin';
+import './scss/bootstrap.scss';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-dark">
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />

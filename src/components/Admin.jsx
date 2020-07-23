@@ -5,7 +5,9 @@ const Admin = () => {
   return (
     <div>
       <Link to="/">
-        <button type="button">Home</button>
+        <button type="button" className="btn btn-dark">
+          Home
+        </button>
       </Link>
     </div>
   );
