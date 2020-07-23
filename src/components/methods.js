@@ -26,4 +26,15 @@ const addVote = (vote, totalVote, id) => {
   return 0;
 };
 
-export { getBoogeymen, addVote };
+const order = (boogeyDatas, setOrderedKillers) => {
+  const ordered = [];
+  const arrLength = boogeyDatas.length;
+  for (let i = 0; i < arrLength; i++) {
+    const index = boogeyDatas.reduce((a, b, i) => (boogeyDatas[a].votes < b.votes ? i : a), 0);
+    ordered.push(boogeyDatas[index]);
+    boogeyDatas.splice(index, 1);
+  }
+  setOrderedKillers(ordered);
+};
+
+export { getBoogeymen, addVote, order };
