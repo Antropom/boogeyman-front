@@ -53,16 +53,38 @@ const Boogeymen = () => {
       </div> */}
       <div className="row bg-dark">
         {orderedKillers &&
-          orderedKillers.map((killer) => (
-            <div key={killer.id} className="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-              <DisplayBoogeyman
-                id={killer.id}
-                name={killer.name}
-                url={killer.avatar}
-                votes={killer.votes}
-              />
-            </div>
-          ))}
+          orderedKillers.map((killer, i) => {
+            if (i === 0) {
+              return (
+                <div key={killer.id} className="col-12 mt-5 ">
+                  <h2 className="text-center mx-auto ncolor perma text-uppercase">
+                    {killer.name}
+                    {` `}
+                    is the champion
+                  </h2>
+                  <DisplayBoogeyman
+                    id={killer.id}
+                    name={killer.name}
+                    url={killer.avatar}
+                    votes={killer.votes}
+                  />
+                  <h3 className="text-center mx-auto ncolor perma text-uppercase mt-5">
+                    now meet the challengers
+                  </h3>
+                </div>
+              );
+            }
+            return (
+              <div key={killer.id} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 mx-auto ">
+                <DisplayBoogeyman
+                  id={killer.id}
+                  name={killer.name}
+                  url={killer.avatar}
+                  votes={killer.votes}
+                />
+              </div>
+            );
+          })}
       </div>
     </div>
   );
