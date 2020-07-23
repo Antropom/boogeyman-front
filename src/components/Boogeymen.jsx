@@ -27,8 +27,8 @@ const Boogeymen = () => {
       </div>
       <div className="row bg-dark">
         {boogeyDatas &&
-          boogeyDatas.map((killer) => (
-            <div className="col-sm-12 col-md-6 col-lg-4 col-xl-3 ">
+          boogeyDatas.map((killer, i) => (
+            <div key={i} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 ">
               <DisplayBoogeyman
                 id={killer.id}
                 name={killer.name}
