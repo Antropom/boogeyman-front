@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Forms from './Forms';
+import PostForm from './PostForm';
 import { getBoogeymen } from './methods';
 
 const Admin = () => {
   const [boogeyDatas, setBoogeyDatas] = useState([]);
+  const [updated, setUpdated] = useState(true);
 
   useEffect(() => {
-    if (boogeyDatas.length === 0) {
+    if (updated) {
       getBoogeymen(setBoogeyDatas);
+      setUpdated(false);
     }
-  }, [boogeyDatas]);
+  }, [updated]);
 
   return (
     <div className="container bg-dark" style={{ height: '100vh' }}>
@@ -19,7 +22,11 @@ const Admin = () => {
           <h3 className="text-center mx-auto ncolor perma text-uppercase">home</h3>
         </Link>
       </div>
-      {boogeyDatas && boogeyDatas.map((killer) => <Forms key={killer.id} killer={killer} />)}
+      {boogeyDatas &&
+        boogeyDatas.map((killer) => (
+          <Forms key={killer.id} killer={killer} setUpdated={setUpdated} />
+        ))}
+      <PostForm setUpdated={setUpdated} />
     </div>
   );
 };

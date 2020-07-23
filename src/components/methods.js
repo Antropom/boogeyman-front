@@ -32,8 +32,8 @@ const addVote = (vote, totalVote, id) => {
 const order = (boogeyDatas, setOrderedKillers) => {
   const ordered = [];
   const arrLength = boogeyDatas.length;
-  for (let i = 0; i < arrLength; i++) {
-    const index = boogeyDatas.reduce((a, b, i) => (boogeyDatas[a].votes < b.votes ? i : a), 0);
+  for (let i = 0; i < arrLength; i += 1) {
+    const index = boogeyDatas.reduce((a, b, ind) => (boogeyDatas[a].votes < b.votes ? ind : a), 0);
     ordered.push(boogeyDatas[index]);
     boogeyDatas.splice(index, 1);
   }
@@ -74,5 +74,24 @@ const deleteBoogeyman = (id) => {
 };
 
 // POST method
+const postBoogeyman = (data) => {
+  return axios
+    .post(`${process.env.REACT_APP_API_URL}/boogeymen`, data)
+    .then((res) => {
+      console.log(res);
+      return true;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
-export { getBoogeymen, addVote, order, handleChange, deleteBoogeyman, editBoogeyman };
+export {
+  getBoogeymen,
+  addVote,
+  order,
+  handleChange,
+  deleteBoogeyman,
+  editBoogeyman,
+  postBoogeyman,
+};
