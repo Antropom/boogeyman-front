@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { addVote } from './methods';
@@ -5,8 +7,9 @@ import arrowUp from '../assets/arrowUp.png';
 import arrowDown from '../assets/arrowDown.png';
 
 const DisplayBoogeyman = (props) => {
-  const { url, name, votes, id } = props;
+  const { url, name, votes, id, setUpdated } = props;
   const [totalVotes, setTotalVotes] = useState(votes);
+
   return (
     <div className="card mx-auto bg-dark mt-5" style={{ width: '18rem' }}>
       <img src={url} className="card-img-top" style={{ height: '30rem' }} alt={name} />
@@ -30,6 +33,7 @@ const DisplayBoogeyman = (props) => {
             onClick={async () => {
               const newVote = await addVote(1, totalVotes, id);
               setTotalVotes(newVote);
+              setUpdated(true);
             }}
             style={{ height: '50px', padding: '10px' }}
           />
@@ -40,6 +44,7 @@ const DisplayBoogeyman = (props) => {
             onClick={async () => {
               const newVote = await addVote(-1, totalVotes, id);
               setTotalVotes(newVote);
+              setUpdated(true);
             }}
             style={{ height: '50px', padding: '10px' }}
           />

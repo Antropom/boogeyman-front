@@ -6,18 +6,24 @@ import DisplayBoogeyman from './DisplayBoogeyman';
 const Boogeymen = () => {
   const [boogeyDatas, setBoogeyDatas] = useState([]);
   const [orderedKillers, setOrderedKillers] = useState([]);
+  const [updated, setUpdated] = useState(true);
+  const [toReorder, setToReorder] = useState(false);
 
   useEffect(() => {
-    if (boogeyDatas.length === 0) {
+    if (updated) {
       getBoogeymen(setBoogeyDatas);
+      setUpdated(false);
+      setToReorder(true);
     }
-  }, [boogeyDatas]);
+  }, [updated]);
 
   useEffect(() => {
-    if (boogeyDatas.length > 0 && orderedKillers.length === 0) {
+    if (toReorder) {
       order(boogeyDatas, setOrderedKillers);
+      setToReorder(false);
     }
-  }, [boogeyDatas, orderedKillers]);
+    // eslint-disable-next-line
+  }, [boogeyDatas]);
 
   return (
     <div className="container mx-auto">
@@ -48,6 +54,7 @@ const Boogeymen = () => {
                     name={killer.name}
                     url={killer.avatar}
                     votes={killer.votes}
+                    setUpdated={setUpdated}
                   />
                   <h3 className="text-center mx-auto ncolor perma text-uppercase mt-5">
                     now meet the challengers
@@ -62,6 +69,7 @@ const Boogeymen = () => {
                   name={killer.name}
                   url={killer.avatar}
                   votes={killer.votes}
+                  setUpdated={setUpdated}
                 />
               </div>
             );
