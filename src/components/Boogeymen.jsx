@@ -20,7 +20,7 @@ const Boogeymen = () => {
   }, [boogeyDatas, orderedKillers]);
 
   return (
-    <div className="container bg-dark mx-auto">
+    <div className="container mx-auto">
       <div className="row">
         <Link to="/" className="col-1 mt-3 nodeco anim">
           <h3 className="text-center mx-auto ncolor perma text-uppercase ">home</h3>
@@ -32,7 +32,7 @@ const Boogeymen = () => {
           <h3 className="text-center mx-auto ncolor perma text-uppercase">admin</h3>
         </Link>
       </div>
-      <div className="row bg-dark">
+      <div className="row ">
         {orderedKillers &&
           orderedKillers.map((killer, i) => {
             if (i === 0) {
