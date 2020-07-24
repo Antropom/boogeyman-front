@@ -37,7 +37,7 @@ const Boogeymen = () => {
           orderedKillers.map((killer, i) => {
             if (i === 0) {
               return (
-                <div key={killer.id} className="col-12 mt-2 ">
+                <div key={killer.id} className="col-12 mt-5 ">
                   <h1 className="text-center mx-auto ncolor perma text-uppercase smtitle">
                     {killer.name}
                     {` `}

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { addVote } from './methods';
+import arrowUp from '../assets/arrowUp.png';
+import arrowDown from '../assets/arrowDown.png';
 
 const DisplayBoogeyman = (props) => {
   const { url, name, votes, id } = props;
@@ -21,26 +23,26 @@ const DisplayBoogeyman = (props) => {
           {name}
         </h5>
         <div className="row">
-          <button
-            type="button"
-            className="col-2 btn btn-danger"
+          <img
+            src={arrowUp}
+            className="col-2"
+            alt="Vote up"
             onClick={async () => {
               const newVote = await addVote(1, totalVotes, id);
               setTotalVotes(newVote);
             }}
-          >
-            Up
-          </button>
-          <button
-            type="button"
-            className="col-2 btn btn-danger"
+            style={{ height: '50px', padding: '10px' }}
+          />
+          <img
+            src={arrowDown}
+            className="col-2"
+            alt="Vote up"
             onClick={async () => {
               const newVote = await addVote(-1, totalVotes, id);
               setTotalVotes(newVote);
             }}
-          >
-            Down
-          </button>
+            style={{ height: '50px', padding: '10px' }}
+          />
           <div className="col-4" />
           <p className="col-4 text-center my-auto perma ncolor">{totalVotes}</p>
         </div>

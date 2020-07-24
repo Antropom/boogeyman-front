@@ -20,7 +20,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container-fluid bg-dark">
       {mute === false ? (
         <video className="intro-video" ref={videoEl} autoPlay loop>
           <track kind="captions" />
