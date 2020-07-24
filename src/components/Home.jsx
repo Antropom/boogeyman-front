@@ -9,7 +9,7 @@ const Home = () => {
         <track kind="captions" />
         <source src={intro} type="video/mp4" />
       </video>
-      <div className="container">
+      <div className="container bg-dark" style={{ height: '100vh' }}>
         <div className="row mt-3">
           <Link
             to="/admin"
