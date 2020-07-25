@@ -1,4 +1,21 @@
+.hidden-bio {
+  display: none;
+}
+
 .bio-wrapper {
   position: absolute;
   top: 0;
+  height: 30rem;
+  overflow: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.bio-txt {
+  color: #eee;
+  text-align: justify;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
 }

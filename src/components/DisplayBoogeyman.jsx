@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { addVote } from './methods';
-import arrowUp from '../assets/arrowUp.png';
-import arrowDown from '../assets/arrowDown.png';
+import arrowUp from '../assets/p-arrow-u.png';
+import arrowDown from '../assets/p-arrow-d.png';
 import BioModal from './BioModal';
 
 const DisplayBoogeyman = (props) => {
@@ -43,7 +43,7 @@ const DisplayBoogeyman = (props) => {
             width: '95%',
           }}
         />
-        <div className="row">
+        <div className="row mt-2">
           <img
             src={arrowUp}
             className="col-2"

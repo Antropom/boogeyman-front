@@ -7,7 +7,7 @@ const BioModal = (props) => {
 
   return (
     <div className="bio-wrapper">
-      <p>{bio}</p>
+      <p className="bio-txt">{bio}</p>
     </div>
   );
 };
