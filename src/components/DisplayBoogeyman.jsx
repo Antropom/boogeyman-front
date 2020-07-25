@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { addVote } from './methods';
-import arrowUp from '../assets/p-arrow-u.png';
-import arrowDown from '../assets/p-arrow-d.png';
+import arrowUp from '../assets/p-arrow-u2.png';
+import arrowDown from '../assets/p-arrow-d2.png';
 import BioModal from './BioModal';
 
 const DisplayBoogeyman = (props) => {
@@ -22,7 +22,7 @@ const DisplayBoogeyman = (props) => {
 
   return (
     <div
-      className="card mx-auto bg-dark mt-5 mb-3"
+      className="card mx-auto bg-dark mt-5 mb-3 "
       style={{ width: '18rem' }}
       onMouseLeave={handleMouseLeave}
     >
