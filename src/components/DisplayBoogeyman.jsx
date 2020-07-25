@@ -11,20 +11,17 @@ const DisplayBoogeyman = (props) => {
   const [totalVotes, setTotalVotes] = useState(votes);
 
   return (
-    <div className="card mx-auto bg-dark mt-5" style={{ width: '18rem' }}>
+    <div className="card mx-auto bg-dark mt-5 mb-3" style={{ width: '18rem' }}>
       <img src={url} className="card-img-top" style={{ height: '30rem' }} alt={name} />
       <div className="card-body">
-        <h5
-          className="card-title text-center perma ncolor"
+        <h5 className="card-title text-center perma ncolor">{name}</h5>
+        <div
+          className="row mx-auto"
           style={{
-            borderRight: 'solid 1px #555 ',
-            borderLeft: 'solid 1px #555 ',
-            borderBottom: 'solid 1px #555',
-            borderRadius: '5px',
+            borderBottom: 'solid 2px #555',
+            width: '95%',
           }}
-        >
-          {name}
-        </h5>
+        />
         <div className="row">
           <img
             src={arrowUp}
@@ -49,7 +46,7 @@ const DisplayBoogeyman = (props) => {
             style={{ height: '50px', padding: '10px' }}
           />
           <div className="col-4" />
-          <p className="col-4 text-center my-auto perma ncolor">{totalVotes}</p>
+          <h5 className="col-4 text-center my-auto perma ncolor">{totalVotes}</h5>
         </div>
       </div>
     </div>
