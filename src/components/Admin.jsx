@@ -18,8 +18,11 @@ const Admin = () => {
   return (
     <div className="container-fluid bg-dark" style={{ height: '100vh' }}>
       <div className="row">
-        <Link to="/" className="col-1 mt-3 nodeco anim">
+        <Link to="/" className="col-1 offset-sm-2 mt-3 nodeco anim">
           <h3 className="text-center mx-auto ncolor perma text-uppercase">home</h3>
+        </Link>
+        <Link to="/boogeymen" className="col-6 offset-5  col-sm-2 offset-sm-5 mt-3 nodeco anim">
+          <h3 className="text-right mx-auto ncolor perma text-uppercase">Ranking</h3>
         </Link>
       </div>
       <div className="row">
