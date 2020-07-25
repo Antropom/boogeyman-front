@@ -53,6 +53,7 @@ const Boogeymen = () => {
                     id={killer.id}
                     name={killer.name}
                     url={killer.avatar}
+                    bio={killer.bio}
                     votes={killer.votes}
                     setUpdated={setUpdated}
                   />
@@ -68,6 +69,7 @@ const Boogeymen = () => {
                   id={killer.id}
                   name={killer.name}
                   url={killer.avatar}
+                  bio={killer.bio}
                   votes={killer.votes}
                   setUpdated={setUpdated}
                 />
