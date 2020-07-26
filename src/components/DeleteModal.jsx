@@ -40,8 +40,8 @@ const DeleteModal = (props) => {
               <button
                 type="button"
                 className="btn btn-danger"
-                onClick={() => {
-                  const condition = deleteBoogeyman(killerId);
+                onClick={async () => {
+                  const condition = await deleteBoogeyman(killerId);
                   setUpdated(condition);
                 }}
                 data-dismiss="modal"
