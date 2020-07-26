@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const DeleteModal = (props) => {
   const { deleteBoogeyman, setUpdated, killerId } = props;
@@ -53,6 +54,12 @@ const DeleteModal = (props) => {
       </div>
     </div>
   );
+};
+
+DeleteModal.propTypes = {
+  deleteBoogeyman: PropTypes.func.isRequired,
+  setUpdated: PropTypes.func.isRequired,
+  killerId: PropTypes.number.isRequired,
 };
 
 export default DeleteModal;
