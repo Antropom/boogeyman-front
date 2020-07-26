@@ -53,16 +53,6 @@ const Forms = (props) => {
       >
         Edit
       </button>
-      {/* <button
-        type="button"
-        className="btn btn-danger mx-auto mt-1 mb-1 col-12 col-md-12 col-lg-1"
-        onClick={() => {
-          deleteBoogeyman(killer.id);
-          setUpdated(true);
-        }}
-      >
-        Delete
-      </button> */}
       <DeleteModal deleteBoogeyman={deleteBoogeyman} killerId={killer.id} setUpdated={setUpdated} />
     </form>
   );
