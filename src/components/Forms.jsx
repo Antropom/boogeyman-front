@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { handleChange, editBoogeyman, deleteBoogeyman } from './methods';
+import DeleteModal from './DeleteModal';
 
 const Forms = (props) => {
   const { killer, setUpdated } = props;
@@ -52,7 +53,7 @@ const Forms = (props) => {
       >
         Edit
       </button>
-      <button
+      {/* <button
         type="button"
         className="btn btn-danger mx-auto mt-1 mb-1 col-12 col-md-12 col-lg-1"
         onClick={() => {
@@ -61,7 +62,8 @@ const Forms = (props) => {
         }}
       >
         Delete
-      </button>
+      </button> */}
+      <DeleteModal deleteBoogeyman={deleteBoogeyman} killerId={killer.id} setUpdated={setUpdated} />
     </form>
   );
 };

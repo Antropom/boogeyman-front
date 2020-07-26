@@ -63,10 +63,11 @@ const editBoogeyman = (id, data) => {
 
 // DELETE method
 const deleteBoogeyman = (id) => {
-  axios
+  return axios
     .delete(`${process.env.REACT_APP_API_URL}/boogeymen/${id}`)
     .then((res) => {
       console.log(res);
+      return true;
     })
     .catch((error) => {
       console.log(error);
