@@ -1,3 +1,8 @@
+.bloody-bg {
+  background-image: url('./assets/Hotel.png');
+  background-attachment: fixed;
+}
+
 .perma {
   font-family: 'Permanent Marker', cursive !important;
 }

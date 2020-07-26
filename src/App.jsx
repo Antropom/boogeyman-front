@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App bg-dark">
+    <div className="App bloody-bg">
       <Router>
         <Switch>
           <Route path="/" exact component={Home} />

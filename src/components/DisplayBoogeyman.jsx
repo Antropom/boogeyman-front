@@ -1,48 +1,73 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { addVote } from './methods';
+import arrowUp from '../assets/p-arrow-u2.png';
+import arrowDown from '../assets/p-arrow-d2.png';
+import BioModal from './BioModal';
 
 const DisplayBoogeyman = (props) => {
-  const { url, name, votes, id } = props;
+  const { url, name, votes, id, bio, setUpdated } = props;
   const [totalVotes, setTotalVotes] = useState(votes);
+  const [displayModal, setDisplayModal] = useState(false);
+
+  const handleMouseEnter = () => {
+    setDisplayModal(true);
+  };
+
+  const handleMouseLeave = () => {
+    setDisplayModal(false);
+  };
+
   return (
-    <div className="card mx-auto bg-dark mt-5" style={{ width: '18rem' }}>
-      <img src={url} className="card-img-top" style={{ height: '30rem' }} alt={name} />
+    <div
+      className="card mx-auto bg-dark mt-5 mb-3 "
+      style={{ width: '18rem' }}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img
+        src={url}
+        className="card-img-top"
+        style={{ height: '30rem' }}
+        alt={name}
+        onMouseEnter={handleMouseEnter}
+      />
+      {displayModal && <BioModal bio={bio} />}
       <div className="card-body">
-        <h5
-          className="card-title text-center perma ncolor"
+        <h5 className="card-title text-center perma ncolor">{name}</h5>
+        <div
+          className="row mx-auto"
           style={{
-            borderRight: 'solid 1px #555 ',
-            borderLeft: 'solid 1px #555 ',
-            borderBottom: 'solid 1px #555',
-            borderRadius: '5px',
+            borderBottom: 'solid 2px #555',
+            width: '95%',
           }}
-        >
-          {name}
-        </h5>
-        <div className="row">
-          <button
-            type="button"
-            className="col-2 btn btn-danger"
+        />
+        <div className="row mt-2">
+          <img
+            src={arrowUp}
+            className="col-2"
+            alt="Vote up"
             onClick={async () => {
               const newVote = await addVote(1, totalVotes, id);
               setTotalVotes(newVote);
+              setUpdated(true);
             }}
-          >
-            Up
-          </button>
-          <button
-            type="button"
-            className="col-2 btn btn-danger"
+            style={{ height: '50px', padding: '10px' }}
+          />
+          <img
+            src={arrowDown}
+            className="col-2"
+            alt="Vote up"
             onClick={async () => {
               const newVote = await addVote(-1, totalVotes, id);
               setTotalVotes(newVote);
+              setUpdated(true);
             }}
-          >
-            Down
-          </button>
+            style={{ height: '50px', padding: '10px' }}
+          />
           <div className="col-4" />
-          <p className="col-4 text-center my-auto perma ncolor">{totalVotes}</p>
+          <h5 className="col-4 text-center my-auto perma ncolor">{totalVotes}</h5>
         </div>
       </div>
     </div>
@@ -52,8 +77,10 @@ const DisplayBoogeyman = (props) => {
 DisplayBoogeyman.propTypes = {
   url: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  bio: PropTypes.string.isRequired,
   votes: PropTypes.number.isRequired,
   id: PropTypes.number.isRequired,
+  setUpdated: PropTypes.func.isRequired,
 };
 
 export default DisplayBoogeyman;

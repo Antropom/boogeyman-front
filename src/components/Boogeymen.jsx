@@ -6,21 +6,27 @@ import DisplayBoogeyman from './DisplayBoogeyman';
 const Boogeymen = () => {
   const [boogeyDatas, setBoogeyDatas] = useState([]);
   const [orderedKillers, setOrderedKillers] = useState([]);
+  const [updated, setUpdated] = useState(true);
+  const [toReorder, setToReorder] = useState(false);
 
   useEffect(() => {
-    if (boogeyDatas.length === 0) {
+    if (updated) {
       getBoogeymen(setBoogeyDatas);
+      setUpdated(false);
+      setToReorder(true);
     }
+  }, [updated]);
+
+  useEffect(() => {
+    if (toReorder) {
+      order(boogeyDatas, setOrderedKillers);
+      setToReorder(false);
+    }
+    // eslint-disable-next-line
   }, [boogeyDatas]);
 
-  useEffect(() => {
-    if (boogeyDatas.length > 0 && orderedKillers.length === 0) {
-      order(boogeyDatas, setOrderedKillers);
-    }
-  }, [boogeyDatas, orderedKillers]);
-
   return (
-    <div className="container bg-dark mx-auto">
+    <div className="container mx-auto">
       <div className="row">
         <Link to="/" className="col-1 mt-3 nodeco anim">
           <h3 className="text-center mx-auto ncolor perma text-uppercase ">home</h3>
@@ -32,12 +38,12 @@ const Boogeymen = () => {
           <h3 className="text-center mx-auto ncolor perma text-uppercase">admin</h3>
         </Link>
       </div>
-      <div className="row bg-dark">
+      <div className="row ">
         {orderedKillers &&
           orderedKillers.map((killer, i) => {
             if (i === 0) {
               return (
-                <div key={killer.id} className="col-12 mt-2 ">
+                <div key={killer.id} className="col-12 mt-5 ">
                   <h1 className="text-center mx-auto ncolor perma text-uppercase smtitle">
                     {killer.name}
                     {` `}
@@ -47,7 +53,9 @@ const Boogeymen = () => {
                     id={killer.id}
                     name={killer.name}
                     url={killer.avatar}
+                    bio={killer.bio}
                     votes={killer.votes}
+                    setUpdated={setUpdated}
                   />
                   <h3 className="text-center mx-auto ncolor perma text-uppercase mt-5">
                     now meet the challengers
@@ -61,7 +69,9 @@ const Boogeymen = () => {
                   id={killer.id}
                   name={killer.name}
                   url={killer.avatar}
+                  bio={killer.bio}
                   votes={killer.votes}
+                  setUpdated={setUpdated}
                 />
               </div>
             );

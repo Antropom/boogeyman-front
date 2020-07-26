@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import intro from '../video/intro.mp4';
 
 const Home = () => {
+  const videoEl = useRef(null);
+  const [mute, setMute] = useState(false);
+
+  const attemptPlay = () => {
+    if (videoEl && videoEl.current) {
+      videoEl.current.play().catch((error) => {
+        console.error('Error attempting to play', error);
+        setMute(true);
+      });
+    }
+  };
+
+  useEffect(() => {
+    attemptPlay();
+  }, []);
+
   return (
-    <div>
-      <video className="intro-video" autoPlay loop>
-        <track kind="captions" />
-        <source src={intro} type="video/mp4" />
-      </video>
-      <div className="container">
+    <div className="container-fluid bg-dark">
+      {mute === false ? (
+        <video className="intro-video" ref={videoEl} autoPlay loop>
+          <track kind="captions" />
+          <source src={intro} type="video/mp4" />
+        </video>
+      ) : (
+        <video className="intro-video" ref={videoEl} autoPlay loop muted>
+          <track kind="captions" />
+          <source src={intro} type="video/mp4" />
+        </video>
+      )}
+      <div className="container bg-dark">
         <div className="row mt-3">
           <Link
             to="/admin"
